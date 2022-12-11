@@ -30,6 +30,7 @@ fn main() {
     conditional_expressions();
 
     loops();
+    functions();
 }
 
 fn named_arguments() {
@@ -311,6 +312,25 @@ fn loops() {
 }
 
 fn functions() {
+    let n = 4;
+    println!("The value of n before function call : {}", n);
+    println!("Invoke Function");
+    fn_pass_by_value(n);
+    println!("\nThe value of n after function call : {}", n);
 
-    
+    let mut n = 4;
+    println!("The value of n before function call : {}", n);
+    println!("Invoke Function");
+    fn_pass_by_ref(&mut n);
+    println!("The value of n after function call : {}", n);
+}
+
+fn fn_pass_by_value(mut n: i32) {
+    n = n * n;
+    println!("The value of n inside function : {}", n);
+}
+
+fn fn_pass_by_ref(n: &mut i32) {
+    *n = *n * *n;
+    println!("The value of n inside function : {}", n);
 }
